@@ -10,7 +10,6 @@ echo $OUTPUT->header();
 
 global $DB, $CFG;
 
-// SQL-запит для отримання менеджерів та кількості курсів, якими вони керують
 $sql = "SELECT u.id, u.firstname, u.lastname, u.email, COUNT(c.id) AS course_count
         FROM {user} u
         JOIN {role_assignments} ra ON u.id = ra.userid

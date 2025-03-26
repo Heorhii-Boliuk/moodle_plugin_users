@@ -2,7 +2,8 @@
 
 $observers = [
     [
-        'eventname'   => '\core\event\grade_updated',
-        'callback'    => 'local_myplugin_observer::grade_updated',
+        'eventname'   => '\core\event\user_grade',
+        'callback'    => 'local_django_sync_observer::grade_updated',
+        'includefile' => '/local/django_sync/classes/observer.php',
     ],
 ];

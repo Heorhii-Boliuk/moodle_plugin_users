@@ -77,6 +77,9 @@ function create_moodle_user($django_user) {
 
 function create_django_user($moodle_user) {
     $url = "https://ksu24.kspu.edu/api/user/";
+    /**
+     * @todo need to add token.
+     */
     $api_token = 'your_django_api_token';
 
     $data = [
@@ -115,7 +118,10 @@ function get_moodle_users() {
 }
 
 function get_django_users() {
-    $django_api_url = 'https://test.new.ksu24.kspu.edu/api/user/';
+    $django_api_url = 'https://ksu24.kspu.edu/api/user/';
+    /**
+     * @todo need to add token.
+     */
     $api_token = 'your_django_api_token';
 
     $all_users = [];

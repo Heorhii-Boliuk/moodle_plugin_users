@@ -36,7 +36,7 @@ echo '<button type="submit" name="sync_users" class="btn btn-primary">🔄 Sync 
 echo '</form>';
 
 if (!empty($only_in_moodle)) {
-    echo "<h3>❌ Пользователи только в Moodle</h3><ul>";
+    echo "<h3>❌ Users only in Moodle</h3><ul>";
     foreach ($only_in_moodle as $user) {
         echo "<li>
                 {$user['email']} 

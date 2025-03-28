@@ -78,9 +78,9 @@ function create_moodle_user($django_user) {
 function create_django_user($moodle_user) {
     $url = "https://ksu24.kspu.edu/api/user/";
     /**
-     * @todo need to add token.
+     * @todo need to add token or get it from server.
      */
-    $api_token = 'your_django_api_token';
+    $jwt_token = 'your_django_api_token';
 
     $data = [
         "username" => $moodle_user['username'],
@@ -97,7 +97,7 @@ function create_django_user($moodle_user) {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        "Authorization: Token $api_token",
+        "Authorization: Bearer $jwt_token",
         "Accept: application/json",
         "Content-Type: application/json"
     ]);
@@ -120,9 +120,9 @@ function get_moodle_users() {
 function get_django_users() {
     $django_api_url = 'https://ksu24.kspu.edu/api/user/';
     /**
-     * @todo need to add token.
+     * @todo need to add token or get it from server.
      */
-    $api_token = 'your_django_api_token';
+    $jwt_token = 'your_django_api_token';
 
     $all_users = [];
     $next_page = $django_api_url;
@@ -132,7 +132,7 @@ function get_django_users() {
         curl_setopt($curl, CURLOPT_URL, $next_page);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
-            "Authorization: Token $api_token",
+            "Authorization: Bearer $jwt_token",
             "Accept: application/json",
             "Content-Type: application/json"
         ]);

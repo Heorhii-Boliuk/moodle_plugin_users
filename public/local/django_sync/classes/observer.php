@@ -51,14 +51,14 @@ class local_django_sync_observer {
 
     private static function make_request($url, $method, $data = null) {
         /**
-         * @todo need to add token.
+         * @todo need to add token or get it from server.
          */
-        $api_token = 'ksu24_api_token';
+        $jwt_token = 'your_django_api_token';
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            "Authorization: Token $api_token",
+            "Authorization: Bearer $jwt_token",
             "Accept: application/json",
             "Content-Type: application/json"
         ]);
